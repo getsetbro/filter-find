@@ -11,14 +11,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style contenteditable>
       .box2 {
-        filter: hue-rotate(45deg);
+        filter: hue-rotate(304deg) brightness(94%) saturate(51%);
       }
     </style>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="p-9">
-      <div class="flex gap-5">
+      <div class="flex gap-1">
         <div>
           <h2>desired color</h2>
           <div class="box box1"></div>
@@ -28,7 +28,7 @@
           <div class="box box2"></div>
         </div>
       </div>
-      <hr class="m-9" />
+      <hr />
       <img
         id="lgImage"
         src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
@@ -48,9 +48,27 @@
         type="range"
         value="100"
         min="0"
-        max="360"
+        max="200"
         step="1"
         oninput="brightFunction(this.value)"
+      />
+      <h3>saturation</h3>
+      <input
+        type="range"
+        value="100"
+        min="0"
+        max="200"
+        step="1"
+        oninput="satFunction(this.value)"
+      />
+      <h3>contrast</h3>
+      <input
+        type="range"
+        value="100"
+        min="0"
+        max="200"
+        step="1"
+        oninput="contFunction(this.value)"
       />
     </main>
     <script src="app.js"></script>

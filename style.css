@@ -5,7 +5,7 @@ style[contenteditable] {
 style[contenteditable] {
   font-family: monospace;
   white-space: pre;
-  height: 111px;
+  height: 88px;
   background-color: #eee;
 }
 input[type="range"] {
@@ -13,17 +13,17 @@ input[type="range"] {
   width: 100%;
 }
 .box {
-  width: 99px;
-  height: 99px;
+  width: 188px;
+  height: 188px;
 }
 .box1 {
   background-color: #00796b;
 }
 
 .box2 {
-  background-color: #1055c2;
+  background-color: #1975d2;
 }
 #lgImage {
-  width: 99px;
-  height: 99px;
+  width: 188px;
+  height: 188px;
 }
