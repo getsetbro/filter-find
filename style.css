@@ -8,7 +8,7 @@ style[contenteditable] {
   height: 88px;
   background-color: #eee;
 }
-input[type="range"] {
+input.wide {
   display: block;
   width: 100%;
 }
@@ -17,7 +17,7 @@ input[type="range"] {
   height: 188px;
 }
 .box1 {
-  background-color: #00796b;
+  background-color: aqua;
 }
 
 .box2 {

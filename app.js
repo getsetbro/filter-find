@@ -2,6 +2,7 @@ let hue = "0deg";
 let bri = "100%";
 let sat = "100%";
 let con = "100%";
+let inv = "0";
 let lgImage = document.getElementById("lgImage");
 
 function hueFunction(val) {
@@ -16,8 +17,12 @@ function satFunction(val) {
   sat = val + "%";
   setIamageStyle();
 }
-function contFunction(val) {
+function conFunction(val) {
   con = val + "%";
+  setIamageStyle();
+}
+function invFunction(val) {
+  inv = val;
   setIamageStyle();
 }
 function setIamageStyle() {
@@ -35,9 +40,7 @@ function setIamageStyle() {
   if (con !== "100%") {
     filter = filter + ` contrast(${con})`;
   }
-  if (filter !== "filter:") {
-    style = filter;
-  }
+  filter = filter + ` invert(${inv})`;
+  style = filter;
   lgImage.setAttribute("style", style);
 }
-// setIamageStyle();

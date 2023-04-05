@@ -37,6 +37,7 @@
       <h3>hue</h3>
       <input
         type="range"
+        class="wide"
         value="0"
         min="0"
         max="360"
@@ -46,6 +47,7 @@
       <h3>brightness</h3>
       <input
         type="range"
+        class="wide"
         value="100"
         min="0"
         max="200"
@@ -55,6 +57,7 @@
       <h3>saturation</h3>
       <input
         type="range"
+        class="wide"
         value="100"
         min="0"
         max="200"
@@ -64,11 +67,21 @@
       <h3>contrast</h3>
       <input
         type="range"
+        class="wide"
         value="100"
         min="0"
         max="200"
         step="1"
-        oninput="contFunction(this.value)"
+        oninput="conFunction(this.value)"
+      />
+      <h3>invert</h3>
+      <input
+        type="range"
+        value="0"
+        min="0"
+        max="1"
+        step="1"
+        oninput="invFunction(this.value)"
       />
     </main>
     <script src="app.js"></script>
