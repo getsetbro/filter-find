@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Find</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style contenteditable>
+      .box2 {
+        filter: hue-rotate(45deg);
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="p-9">
+      <div class="flex gap-5">
+        <div>
+          <h2>desired color</h2>
+          <div class="box box1"></div>
+        </div>
+        <div>
+          <h2>filter image to match desired color</h2>
+          <div class="box box2"></div>
+        </div>
+      </div>
+      <hr class="m-9" />
+      <img
+        id="lgImage"
+        src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
+      />
+
+      <h3>hue</h3>
+      <input
+        type="range"
+        value="0"
+        min="0"
+        max="360"
+        step="1"
+        oninput="hueFunction(this.value)"
+      />
+      <h3>brightness</h3>
+      <input
+        type="range"
+        value="100"
+        min="0"
+        max="360"
+        step="1"
+        oninput="brightFunction(this.value)"
+      />
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

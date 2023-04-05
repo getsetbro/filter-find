@@ -1,0 +1,29 @@
+head,
+style[contenteditable] {
+  display: block;
+}
+style[contenteditable] {
+  font-family: monospace;
+  white-space: pre;
+  height: 111px;
+  background-color: #eee;
+}
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+.box {
+  width: 99px;
+  height: 99px;
+}
+.box1 {
+  background-color: #00796b;
+}
+
+.box2 {
+  background-color: #1055c2;
+}
+#lgImage {
+  width: 99px;
+  height: 99px;
+}
