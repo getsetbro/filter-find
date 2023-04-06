@@ -1,29 +1,21 @@
-head,
-style[contenteditable] {
+label {
   display: block;
-}
-style[contenteditable] {
-  font-family: monospace;
-  white-space: pre;
-  height: 88px;
-  background-color: #eee;
 }
 input.wide {
-  display: block;
   width: 100%;
 }
-.box {
-  width: 188px;
-  height: 188px;
+input.toggle {
+  width: 44px;
 }
-.box1 {
-  background-color: aqua;
+.box {
+  width: 133px;
+  height: 133px;
 }
 
 .box2 {
   background-color: #1975d2;
 }
 #lgImage {
-  width: 188px;
-  height: 188px;
+  width: 133px;
+  height: 133px;
 }

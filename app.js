@@ -1,10 +1,20 @@
+let colorPicker;
+let box1;
+let lgImage;
 let hue = "0deg";
 let bri = "100%";
 let sat = "100%";
 let con = "100%";
 let inv = "0";
-let lgImage = document.getElementById("lgImage");
 
+function startup() {
+  lgImage = document.getElementById("lgImage");
+  colorPicker = document.querySelector("#color-picker");
+  box1 = document.querySelector("#box1");
+
+  colorPicker.addEventListener("input", updateFirst, false);
+  colorPicker.addEventListener("change", updateAll, false);
+}
 function hueFunction(val) {
   hue = val + "deg";
   setIamageStyle();
@@ -44,3 +54,15 @@ function setIamageStyle() {
   style = filter;
   lgImage.setAttribute("style", style);
 }
+
+function updateFirst(event) {
+  box1.style.backgroundColor = event.target.value;
+}
+function updateAll(event) {
+  const p = document.querySelector("p");
+  if (p) {
+    p.style.color = event.target.value;
+  }
+}
+
+window.addEventListener("load", startup, false);

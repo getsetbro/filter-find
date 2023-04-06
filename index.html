@@ -4,85 +4,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filter Find</title>
     <link
+      href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABQMBAAkJCQAysBwA////ACwhCwABAQEARc8tACsrKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERCd3d3d3MAREB3d3d3cwBERnd3d3dzAERAAAAAh3MARERERESHcwBERERERIdzAEREREREh3MAREAVVVCHcwBEQHd3d3dzAERAd3d3d3MAREAAAAAHcwBERERERAdzAEREREREB3MAREREREQHcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       rel="icon"
       type="image/x-icon"
-      href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style contenteditable>
-      .box2 {
-        filter: hue-rotate(304deg) brightness(94%) saturate(51%);
-      }
-    </style>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <main class="p-9">
+  <body class="p-12">
+    <header>
+      <img
+        class="inline-block w-9 h-9"
+        src="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABQMBAAkJCQAysBwA////ACwhCwABAQEARc8tACsrKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERCd3d3d3MAREB3d3d3cwBERnd3d3dzAERAAAAAh3MARERERESHcwBERERERIdzAEREREREh3MAREAVVVCHcwBEQHd3d3dzAERAd3d3d3MAREAAAAAHcwBERERERAdzAEREREREB3MAREREREQHcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      />
+      <span class="font-bold">Filter Find</span>
+    </header>
+    <main class="mt-9">
       <div class="flex gap-1">
-        <div>
+        <div class="desired">
           <h2>desired color</h2>
-          <div class="box box1"></div>
+          <div
+            id="box1"
+            class="box box1"
+            style="background-color: rgb(0, 181, 10)"
+          ></div>
+          <label for="color-picker">pick color:</label>
+          <input type="color" value="#60c254" id="color-picker" />
         </div>
         <div>
-          <h2>filter image to match desired color</h2>
+          <h2>match image</h2>
+          <img
+            id="lgImage"
+            src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
+          />
+        </div>
+        <div>
+          <h2>match color</h2>
           <div class="box box2"></div>
         </div>
       </div>
-      <hr />
-      <img
-        id="lgImage"
-        src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
-      />
 
-      <h3>hue</h3>
-      <input
-        type="range"
-        class="wide"
-        value="0"
-        min="0"
-        max="360"
-        step="1"
-        oninput="hueFunction(this.value)"
-      />
-      <h3>brightness</h3>
-      <input
-        type="range"
-        class="wide"
-        value="100"
-        min="0"
-        max="200"
-        step="1"
-        oninput="brightFunction(this.value)"
-      />
-      <h3>saturation</h3>
-      <input
-        type="range"
-        class="wide"
-        value="100"
-        min="0"
-        max="200"
-        step="1"
-        oninput="satFunction(this.value)"
-      />
-      <h3>contrast</h3>
-      <input
-        type="range"
-        class="wide"
-        value="100"
-        min="0"
-        max="200"
-        step="1"
-        oninput="conFunction(this.value)"
-      />
-      <h3>invert</h3>
-      <input
-        type="range"
-        value="0"
-        min="0"
-        max="1"
-        step="1"
-        oninput="invFunction(this.value)"
-      />
+      <div>
+        <label>INVERT</label>
+        <span>OFF</span>
+        <input
+          type="range"
+          class="toggle"
+          value="0"
+          min="0"
+          max="1"
+          step="1"
+          oninput="invFunction(this.value)"
+        />
+        <span>ON</span>
+      </div>
+      <div>
+        <label>HUE</label>
+        <input
+          type="range"
+          class="wide"
+          value="0"
+          min="0"
+          max="360"
+          step="1"
+          oninput="hueFunction(this.value)"
+          list="steplist1"
+        />
+        <datalist id="steplist1">
+          <option>0</option>
+          <option>30</option>
+          <option>60</option>
+          <option>90</option>
+          <option>120</option>
+          <option>150</option>
+          <option>180</option>
+          <option>210</option>
+          <option>240</option>
+          <option>270</option>
+          <option>300</option>
+          <option>330</option>
+          <option>360</option>
+        </datalist>
+      </div>
+      <div>
+        <label>BRIGHTNESS</label>
+        <input
+          type="range"
+          class="wide"
+          value="100"
+          min="0"
+          max="200"
+          step="1"
+          oninput="brightFunction(this.value)"
+          list="steplist2"
+        />
+        <datalist id="steplist2">
+          <option>0</option>
+          <option>25</option>
+          <option>50</option>
+          <option>75</option>
+          <option>100</option>
+          <option>125</option>
+          <option>150</option>
+          <option>175</option>
+          <option>200</option>
+        </datalist>
+      </div>
+      <div>
+        <label>SATURATE</label>
+        <input
+          type="range"
+          class="wide"
+          value="100"
+          min="0"
+          max="200"
+          step="1"
+          oninput="satFunction(this.value)"
+          list="steplist3"
+        />
+        <datalist id="steplist3">
+          <option>0</option>
+          <option>25</option>
+          <option>50</option>
+          <option>75</option>
+          <option>100</option>
+          <option>125</option>
+          <option>150</option>
+          <option>175</option>
+          <option>200</option>
+        </datalist>
+      </div>
+      <div>
+        <label>CONTRAST</label>
+        <input
+          type="range"
+          class="wide"
+          value="100"
+          min="0"
+          max="200"
+          step="1"
+          oninput="conFunction(this.value)"
+          list="steplist4"
+        />
+        <datalist id="steplist4">
+          <option>0</option>
+          <option>25</option>
+          <option>50</option>
+          <option>75</option>
+          <option>100</option>
+          <option>125</option>
+          <option>150</option>
+          <option>175</option>
+          <option>200</option>
+        </datalist>
+      </div>
     </main>
     <script src="app.js"></script>
   </body>
