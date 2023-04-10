@@ -20,54 +20,116 @@
       <span class="font-bold">Filter Find</span>
     </header>
     <main class="mt-9">
-      <div class="flex gap-1">
-        <div class="desired">
-          <h2>desired color</h2>
+      <div class="flex">
+        <div>
+          <h2 class="uppercase">original image</h2>
+          <img
+            src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
+            class="img-size"
+          />
+        </div>
+        <div class="ml-5">
+          <h2 class="uppercase">color from img</h2>
+          <div
+            id="box0"
+            class="box box1"
+            style="background-color: rgb(222, 222, 222)"
+          ></div>
+          <label for="color_picker">pick color:</label>
+          <input type="color" value="#dedede" id="color_picker1" />
+        </div>
+        <div class="ml-5">
+          <h2 class="uppercase">desired color</h2>
           <div
             id="box1"
             class="box box1"
-            style="background-color: rgb(0, 181, 10)"
+            style="background-color: rgb(222, 222, 222)"
           ></div>
-          <label for="color-picker">pick color:</label>
-          <input type="color" value="#60c254" id="color-picker" />
+          <label for="color_picker">pick color:</label>
+          <input type="color" value="#dedede" id="color_picker2" />
         </div>
         <div>
-          <h2>match image</h2>
+          <h2 class="uppercase">filtered image</h2>
           <img
-            id="lgImage"
+            id="changed"
             src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
+            class="img-size"
           />
-        </div>
-        <div>
-          <h2>match color</h2>
-          <div class="box box2"></div>
         </div>
       </div>
 
-      <div>
-        <label>INVERT</label>
-        <span>OFF</span>
+      <div class="mt-4 flex gap-1">
+        <label class="w-40">BRIGHTNESS</label>
         <input
           type="range"
-          class="toggle"
-          value="0"
+          class="wide"
+          value="100"
           min="0"
-          max="1"
+          max="200"
           step="1"
-          oninput="invFunction(this.value)"
+          id="inp_bri"
+          list="steplist2"
         />
-        <span>ON</span>
+        <datalist id="steplist2">
+          <option>0</option>
+          <option>25</option>
+          <option>50</option>
+          <option>75</option>
+          <option>100</option>
+          <option>125</option>
+          <option>150</option>
+          <option>175</option>
+          <option>200</option>
+        </datalist>
+        <p id="bri_val">100%</p>
+        <button
+          id="btn_reset_bri"
+          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
+        >
+          reset
+        </button>
       </div>
-      <div>
-        <label>HUE</label>
+      <div class="mt-4 flex gap-1">
+        <label class="w-40">CONTRAST</label>
         <input
+          type="range"
+          class="wide"
+          value="100"
+          min="0"
+          max="200"
+          step="1"
+          id="inp_con"
+          list="steplist4"
+        />
+        <datalist id="steplist4">
+          <option>0</option>
+          <option>25</option>
+          <option>50</option>
+          <option>75</option>
+          <option>100</option>
+          <option>125</option>
+          <option>150</option>
+          <option>175</option>
+          <option>200</option>
+        </datalist>
+        <p id="con_val">100%</p>
+        <button
+          id="btn_reset_con"
+          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
+        >
+          reset
+        </button>
+      </div>
+      <div class="mt-4 flex gap-1">
+        <label class="w-40">HUE</label>
+        <input
+          id="inp_hue"
           type="range"
           class="wide"
           value="0"
           min="0"
           max="360"
           step="1"
-          oninput="hueFunction(this.value)"
           list="steplist1"
         />
         <datalist id="steplist1">
@@ -85,33 +147,31 @@
           <option>330</option>
           <option>360</option>
         </datalist>
+        <p id="hue_val">0deg</p>
+        <button
+          id="btn_reset_hue"
+          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
+        >
+          reset
+        </button>
       </div>
-      <div>
-        <label>BRIGHTNESS</label>
+      <div class="mt-4 flex gap-1">
+        <label class="w-40">INVERT</label>
+        <span>OFF</span>
         <input
+          id="inp_inv"
           type="range"
-          class="wide"
-          value="100"
+          class="toggle"
+          value="0"
           min="0"
-          max="200"
+          max="1"
           step="1"
-          oninput="brightFunction(this.value)"
-          list="steplist2"
         />
-        <datalist id="steplist2">
-          <option>0</option>
-          <option>25</option>
-          <option>50</option>
-          <option>75</option>
-          <option>100</option>
-          <option>125</option>
-          <option>150</option>
-          <option>175</option>
-          <option>200</option>
-        </datalist>
+        <span>ON</span>
       </div>
-      <div>
-        <label>SATURATE</label>
+
+      <div class="mt-4 flex gap-1">
+        <label class="w-40">SATURATE</label>
         <input
           type="range"
           class="wide"
@@ -119,7 +179,7 @@
           min="0"
           max="200"
           step="1"
-          oninput="satFunction(this.value)"
+          id="inp_sat"
           list="steplist3"
         />
         <datalist id="steplist3">
@@ -133,31 +193,19 @@
           <option>175</option>
           <option>200</option>
         </datalist>
+        <p id="sat_val">100%</p>
+        <button
+          id="btn_reset_sat"
+          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
+        >
+          reset
+        </button>
       </div>
-      <div>
-        <label>CONTRAST</label>
-        <input
-          type="range"
-          class="wide"
-          value="100"
-          min="0"
-          max="200"
-          step="1"
-          oninput="conFunction(this.value)"
-          list="steplist4"
-        />
-        <datalist id="steplist4">
-          <option>0</option>
-          <option>25</option>
-          <option>50</option>
-          <option>75</option>
-          <option>100</option>
-          <option>125</option>
-          <option>150</option>
-          <option>175</option>
-          <option>200</option>
-        </datalist>
-      </div>
+
+      <h3 class="mt-7">FILTER CODE</h3>
+      <pre
+        class="p-9 bg-gray-100"
+      ><code id="code" class="whitespace-normal">filter:</code></pre>
     </main>
     <script src="app.js"></script>
   </body>

@@ -2,7 +2,7 @@ label {
   display: block;
 }
 input.wide {
-  width: 100%;
+  width: 350px;
 }
 input.toggle {
   width: 44px;
@@ -13,9 +13,9 @@ input.toggle {
 }
 
 .box2 {
-  background-color: #1975d2;
+  background-color: #1675d3;
 }
-#lgImage {
+.img-size {
   width: 133px;
   height: 133px;
 }
