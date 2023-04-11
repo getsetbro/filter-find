@@ -1,3 +1,7 @@
+main {
+  min-height: 83vh;
+}
+
 label {
   display: block;
 }
@@ -7,15 +11,11 @@ input.wide {
 input.toggle {
   width: 44px;
 }
-.box {
-  width: 133px;
-  height: 133px;
-}
 
 .box2 {
   background-color: #1675d3;
 }
-.img-size {
-  width: 133px;
-  height: 133px;
+
+.max-w-screen {
+  max-width: 100vw;
 }

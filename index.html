@@ -11,38 +11,38 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="p-12">
-    <header>
+  <body class="bg-slate-800 text-white">
+    <header class="text-center p-4 border-b-2">
       <img
         class="inline-block w-9 h-9"
         src="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABQMBAAkJCQAysBwA////ACwhCwABAQEARc8tACsrKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERCd3d3d3MAREB3d3d3cwBERnd3d3dzAERAAAAAh3MARERERESHcwBERERERIdzAEREREREh3MAREAVVVCHcwBEQHd3d3dzAERAd3d3d3MAREAAAAAHcwBERERERAdzAEREREREB3MAREREREQHcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       />
       <span class="font-bold">Filter Find</span>
     </header>
-    <main class="mt-9">
-      <div class="flex">
-        <div>
+    <main class="mt-5 mx-auto w-fit">
+      <div class="flex flex-wrap">
+        <div class="mr-5">
           <h2 class="uppercase">original image</h2>
           <img
             src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
-            class="img-size"
+            class="img-size w-36 h-36"
           />
         </div>
-        <div class="ml-5">
+        <div class="mr-5">
           <h2 class="uppercase">color from img</h2>
           <div
             id="box0"
-            class="box box1"
+            class="box1 w-36 h-36"
             style="background-color: rgb(222, 222, 222)"
           ></div>
           <label for="color_picker">pick color:</label>
           <input type="color" value="#dedede" id="color_picker1" />
         </div>
-        <div class="ml-5">
+        <div>
           <h2 class="uppercase">desired color</h2>
           <div
             id="box1"
-            class="box box1"
+            class="box1 w-36 h-36"
             style="background-color: rgb(222, 222, 222)"
           ></div>
           <label for="color_picker">pick color:</label>
@@ -53,16 +53,16 @@
           <img
             id="changed"
             src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
-            class="img-size"
+            class="img-size w-36 h-36"
           />
         </div>
       </div>
 
-      <div class="mt-4 flex gap-1">
-        <label class="w-40">BRIGHTNESS</label>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <label class="w-28">BRIGHTNESS</label>
         <input
           type="range"
-          class="wide"
+          class="w-96 max-w-screen"
           value="100"
           min="0"
           max="200"
@@ -81,19 +81,14 @@
           <option>175</option>
           <option>200</option>
         </datalist>
-        <p id="bri_val">100%</p>
-        <button
-          id="btn_reset_bri"
-          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
-        >
-          reset
-        </button>
+        <p id="bri_val" class="w-16">100%</p>
+        <button id="btn_reset_bri" class="underline text-xs">reset</button>
       </div>
-      <div class="mt-4 flex gap-1">
-        <label class="w-40">CONTRAST</label>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <label class="w-28">CONTRAST</label>
         <input
           type="range"
-          class="wide"
+          class="w-96 max-w-screen"
           value="100"
           min="0"
           max="200"
@@ -112,20 +107,15 @@
           <option>175</option>
           <option>200</option>
         </datalist>
-        <p id="con_val">100%</p>
-        <button
-          id="btn_reset_con"
-          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
-        >
-          reset
-        </button>
+        <p id="con_val" class="w-16">100%</p>
+        <button id="btn_reset_con" class="underline text-xs">reset</button>
       </div>
-      <div class="mt-4 flex gap-1">
-        <label class="w-40">HUE</label>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <label class="w-28">HUE</label>
         <input
           id="inp_hue"
           type="range"
-          class="wide"
+          class="w-96 max-w-screen"
           value="0"
           min="0"
           max="360"
@@ -147,16 +137,11 @@
           <option>330</option>
           <option>360</option>
         </datalist>
-        <p id="hue_val">0deg</p>
-        <button
-          id="btn_reset_hue"
-          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
-        >
-          reset
-        </button>
+        <p id="hue_val" class="w-16">0deg</p>
+        <button id="btn_reset_hue" class="underline text-xs">reset</button>
       </div>
-      <div class="mt-4 flex gap-1">
-        <label class="w-40">INVERT</label>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <label class="w-28">INVERT</label>
         <span>OFF</span>
         <input
           id="inp_inv"
@@ -170,11 +155,11 @@
         <span>ON</span>
       </div>
 
-      <div class="mt-4 flex gap-1">
-        <label class="w-40">SATURATE</label>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <label class="w-28">SATURATE</label>
         <input
           type="range"
-          class="wide"
+          class="w-96 max-w-screen"
           value="100"
           min="0"
           max="200"
@@ -193,20 +178,16 @@
           <option>175</option>
           <option>200</option>
         </datalist>
-        <p id="sat_val">100%</p>
-        <button
-          id="btn_reset_sat"
-          class="border border-gray-500 rounded px-1 bg-slate-200 text-xs leading-none"
-        >
-          reset
-        </button>
+        <p id="sat_val" class="w-16">100%</p>
+        <button id="btn_reset_sat" class="underline text-xs">reset</button>
       </div>
 
-      <h3 class="mt-7">FILTER CODE</h3>
+      <h3 class="mt-7">CSS FILTER CODE</h3>
       <pre
-        class="p-9 bg-gray-100"
+        class="p-9 bg-slate-900"
       ><code id="code" class="whitespace-normal">filter:</code></pre>
     </main>
+    <footer class="border-t-2 text-right p-4">FF</footer>
     <script src="app.js"></script>
   </body>
 </html>
