@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Color Match Generator</title>
+  </head>
+  <body>
+    <div class="mr-5">
+      <h2 class="uppercase">original image</h2>
+      <img
+        src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
+        class="img-size w-36 h-36"
+      />
+    </div>
+    <form id="myForm">
+      <label for="original-color">Original Color:</label>
+      <input
+        type="color"
+        id="original-color"
+        name="original-color"
+      /><br /><br />
+      <label for="desired-color">Desired Color:</label>
+      <input type="color" id="desired-color" name="desired-color" /><br /><br />
+      <button type="submit" onclick="generateCSSFilter()">
+        Generate CSS Filter
+      </button>
+    </form>
+    <div>
+      <h2 class="uppercase">filtered image</h2>
+      <img
+        id="changed"
+        src="https://cdn5.userzoom.com/d/f/C5314S5573/9732/638107828638230000/f.png"
+        class="img-size w-36 h-36"
+      />
+    </div>
+    <p id="css-filter"></p>
+
+    <script>
+      const changed = document.querySelector("#changed");
+
+      const form = document.getElementById("myForm");
+      function handleForm(event) {
+        event.preventDefault();
+      }
+      form.addEventListener("submit", handleForm);
+
+      function generateCSSFilter() {
+        const originalColor = document.getElementById("original-color").value;
+        const desiredColor = document.getElementById("desired-color").value;
+
+        const originalRGB = hexToRGB(originalColor);
+        const desiredRGB = hexToRGB(desiredColor);
+
+        const hueDiff = desiredRGB.h - originalRGB.h;
+        let satDiff = desiredRGB.s - originalRGB.s;
+        // if (satDiff < 0) {
+        //   satDiff = 100 + satDiff;
+        // } else {
+        //   satDiff = 100 - satDiff;
+        // }
+        let lightnessDiff = desiredRGB.l - originalRGB.l;
+        // if (lightnessDiff < 0) {
+        //   lightnessDiff = 100 + lightnessDiff;
+        // } else {
+        //   lightnessDiff = 100 - lightnessDiff;
+        // }
+
+        const cssFilter = `filter: hue-rotate(${hueDiff}deg) saturate(${satDiff}%) brightness(${lightnessDiff}%);`;
+
+        changed.setAttribute("style", cssFilter);
+        document.getElementById("css-filter").textContent = cssFilter;
+      }
+
+      function hexToRGB(hex) {
+        const r = parseInt(hex.substring(1, 3), 16);
+        const g = parseInt(hex.substring(3, 5), 16);
+        const b = parseInt(hex.substring(5, 7), 16);
+
+        return rgbToHSL(r, g, b);
+      }
+
+      function rgbToHSL(r, g, b) {
+        (r /= 255), (g /= 255), (b /= 255);
+
+        const max = Math.max(r, g, b),
+          min = Math.min(r, g, b);
+        let h,
+          s,
+          l = (max + min) / 2;
+
+        if (max == min) {
+          h = s = 0;
+        } else {
+          const d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          switch (max) {
+            case r:
+              h = (g - b) / d + (g < b ? 6 : 0);
+              break;
+            case g:
+              h = (b - r) / d + 2;
+              break;
+            case b:
+              h = (r - g) / d + 4;
+              break;
+          }
+          h /= 6;
+        }
+
+        return {
+          h: Math.round(h * 360),
+          s: Math.round(s * 100),
+          l: Math.round(l * 100),
+        };
+      }
+    </script>
+  </body>
+</html>

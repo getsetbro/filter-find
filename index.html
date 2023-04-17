@@ -59,7 +59,7 @@
       </div>
 
       <div class="mt-7 flex flex-wrap gap-3">
-        <label class="w-28">BRIGHTNESS</label>
+        <label class="w-32">BRIGHTNESS</label>
         <input
           type="range"
           class="w-96 max-w-screen"
@@ -85,7 +85,7 @@
         <button id="btn_reset_bri" class="underline text-xs">reset</button>
       </div>
       <div class="mt-4 flex flex-wrap gap-3">
-        <label class="w-28">CONTRAST</label>
+        <label class="w-32">CONTRAST</label>
         <input
           type="range"
           class="w-96 max-w-screen"
@@ -111,7 +111,7 @@
         <button id="btn_reset_con" class="underline text-xs">reset</button>
       </div>
       <div class="mt-4 flex flex-wrap gap-3">
-        <label class="w-28">HUE</label>
+        <label class="w-32">HUE</label>
         <input
           id="inp_hue"
           type="range"
@@ -140,23 +140,9 @@
         <p id="hue_val" class="w-16">0deg</p>
         <button id="btn_reset_hue" class="underline text-xs">reset</button>
       </div>
-      <div class="mt-4 flex flex-wrap gap-3">
-        <label class="w-28">INVERT</label>
-        <span>OFF</span>
-        <input
-          id="inp_inv"
-          type="range"
-          class="toggle"
-          value="0"
-          min="0"
-          max="1"
-          step="1"
-        />
-        <span>ON</span>
-      </div>
 
       <div class="mt-4 flex flex-wrap gap-3">
-        <label class="w-28">SATURATE</label>
+        <label class="w-32">SATURATE</label>
         <input
           type="range"
           class="w-96 max-w-screen"
@@ -181,11 +167,25 @@
         <p id="sat_val" class="w-16">100%</p>
         <button id="btn_reset_sat" class="underline text-xs">reset</button>
       </div>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <label class="w-32">INVERT</label>
+        <span>OFF</span>
+        <input
+          id="inp_inv"
+          type="range"
+          class="toggle"
+          value="0"
+          min="0"
+          max="1"
+          step="1"
+        />
+        <span>ON</span>
+      </div>
 
       <h3 class="mt-7">CSS FILTER CODE</h3>
       <pre
-        class="p-9 bg-slate-900"
-      ><code id="code" class="whitespace-normal">filter:</code></pre>
+        class="p-4 bg-slate-900"
+      ><code id="code" class="text-xs">filter:</code></pre>
     </main>
     <footer class="border-t-2 text-right p-4">FF</footer>
     <script src="app.js"></script>
